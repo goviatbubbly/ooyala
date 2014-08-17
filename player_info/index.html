@@ -6,16 +6,76 @@
     </head>
 
     <body>
-        <h2> Basic Player - Embed Ooyala player</h2>
+        <h2> Ooyala Player - Video info </h2>
         <p> This example illustrates basic structure recommended by Ooyala </p>
         
         <div id='playerwrapper' style='width:480px;height:360px;'> </div>
+        
         <div id='metadata'>
             -- Metadata -- <br/>
         </div>
-        <script>
-            var videoPlayer = OO.Player.create('playerwrapper','FrbnBvbzqwLI3SYfe2gi5mOg1lQxjLxQ',{height:'80%',width:'100%'});
-            videoPlayer.play();
+
+        <div id='bitrate'>
+            -- Bitrate -- <br/>
+        </div>
+
+        <div id='buffer'>
+            -- Buffer -- <br/>
+        </div>
+
+        <script type=text/javascript>
+            function getElement(id) {
+                return document.querySelector('#'+id);
+            }
+
+            function onCreate(player){
+                console.log("onCreate: start");
+                player.subscribe('*', 'thisPage', function(eventName){
+                    console.log("onCreate: RECEIVED EVENT: "+eventName);
+                });
+
+                player.subscribe('error', 'thisPage1', function(eventName, payload){
+                    console.log("onCreate: RECEIVED ERROR EVENT: "+eventName+" payload: "+payload);
+                });
+
+                //Buffer Listener
+                window.bufferLength = -100;
+                player.subscribe('playheadTimeChanged', 'thisPage', function(eventName){
+                    var newBufferLength = player.getBufferLength();
+                    if (bufferLength === newBufferLength) { 
+                        return; 
+                    }
+                    window.bufferElement.innerHTML += "Buffer length is " + player.getBufferLength() + "<br/>"
+                    window.bufferLength = newBufferLength;
+                });                
+
+                //Bitrate Listener
+                player.subscribe('bitrateInfoAvailable', 'thisPage', function(eventName){
+                    var rates = player.getBitratesAvailable();
+                    if (rates.length > 0) {
+                        for (var i=0; i < rates.length; i++) {
+                            window.bitrateElement.innerHTML += "Rate: " + rates[i] + "<br/>" 
+                        }
+                    }
+                });
+
+                //Metadata
+                player.subscribe('bitrateInfoAvailable', 'thisPage', function(eventName){
+                    window.metadataElement.innerHTML += "Title is: " + player.getTitle() + "<br/>";
+                    window.metadataElement.innerHTML += "Description is: " + player.getDescription() + "<br/>";
+                    window.metadataElement.innerHTML += "Duration is: " + player.getDuration() + "<br/>";
+                });                
+
+            }//onCreate ends here
+
+            window.bufferElement = getElement('buffer');
+            window.bitrateElement = getElement('bitrate');
+            window.metadataElement = getElement('metadata');
+
+            OO.ready(function() {
+                window.player = OO.Player.create('playerwrapper','FrbnBvbzqwLI3SYfe2gi5mOg1lQxjLxQ', {onCreate: window.onCreate, autoplay: true});    
+            });
+
         </script>
     </body>
 </html>
