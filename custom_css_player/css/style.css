@@ -20,4 +20,8 @@
 	margin: 50px;
 	opacity: 1.8;
 	border:10px solid silver;
+
+	.oo_playhead {
+	background-image: url(http://www.twibies.com/wp-content/uploads/2010/11/large_funny_twitter_icon.jpg) !important;
+	}
 }
