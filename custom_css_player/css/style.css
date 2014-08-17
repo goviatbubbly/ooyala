@@ -13,3 +13,11 @@
 	background-image: url(http://www.twibies.com/wp-content/uploads/2010/11/large_funny_twitter_icon.jpg) !important;
 }
 
+#playerwrapper {
+	width: 800px;
+	height:300px;
+	background-color: black;
+	margin: 58px;
+	opacity: 0.5;
+	border:10px solid silver;
+}
