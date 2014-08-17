@@ -1,4 +1,9 @@
-/* background color */
+/* play progressbar background color */
 .oo_playhead_progress {
+	background: red !important;
+}
+
+/* buffer progressbar background color */
+.oo_buffer_progress {
 	background: red !important;
 }
