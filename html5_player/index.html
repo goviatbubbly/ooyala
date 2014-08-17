@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Ooyala html5 Player </title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+        <script src='http://player.ooyala.com/v3/5c8b92ae81ac4a3896c016cf686d1c6a?platform=priority-html5'></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+    <body>
+        <h2> Ooyala HTML5 Player </h2>
+
+        <p> This example illustrates how to load, place and create Ooyala v3 html player.
+            Detailed instructions are documented in <a href="http://support.ooyala.com/developers/documentation/reference/player_v3_dev_stylediv.html"> Ooyala Html5 Player Tutorial</a>  </p>
+        
+        <div id='playerwrapper'></div>
+
+        <script>
+            OO.ready(function(){
+                var videoPlayer = OO.Player.create('playerwrapper','FvbnBvbzoFXFM5iDGERUaZc4tOTmmaH5',{height:'100%',width:'100%', css:'css/style.css'});
+            });    
+        </script>
+    </body>
+</html>

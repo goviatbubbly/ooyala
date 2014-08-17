@@ -1,0 +1,14 @@
+/* play progressbar background color */
+.oo_playhead_progress {
+	background: red !important;
+}
+
+/* buffer progressbar background color */
+.oo_buffer_progress {
+	background: red !important;
+}
+
+/* image under playhead */
+.oo_playhead {
+	background-image: url(http://www.twibies.com/wp-content/uploads/2010/11/large_funny_twitter_icon.jpg) !important;
+}
