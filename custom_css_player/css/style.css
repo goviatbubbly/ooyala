@@ -1,4 +1,4 @@
 /* background color */
 .oo_playhead_progress {
-	background: red;
+	background: red !important;
 }
