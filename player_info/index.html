@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Ooyala Player - Video info </title>
+        <script src='http://player.ooyala.com/v3/5c8b92ae81ac4a3896c016cf686d1c6a'></script>
+    </head>
+
+    <body>
+        <h2> Basic Player - Embed Ooyala player</h2>
+        <p> This example illustrates basic structure recommended by Ooyala </p>
+        
+        <div id='playerwrapper' style='width:480px;height:360px;'> </div>
+        <div id='metadata'>
+            -- Metadata -- <br/>
+        </div>
+        <script>
+            var videoPlayer = OO.Player.create('playerwrapper','FrbnBvbzqwLI3SYfe2gi5mOg1lQxjLxQ',{height:'80%',width:'100%'});
+            videoPlayer.play();
+        </script>
+    </body>
+</html>
