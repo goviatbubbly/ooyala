@@ -29,12 +29,81 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Ooyala Player - Update Video info/a>
+                <a class="navbar-brand" href="#">Ooyala Player - Update Video info</a>
             </div>
         </div>
+
+    <div class="jumbotron">
+      <div class="container">
         
+        <div id='playerwrapper' style='width:480px;height:360px;'> </div>
+
+        <script type=text/javascript>
+            function getElement(id) {
+                return document.querySelector('#'+id);
+            }
+
+            function onCreate(player){
+                console.log("onCreate: start");
+                player.subscribe('*', 'thisPage', function(eventName){
+                    console.log("onCreate: RECEIVED EVENT: "+eventName);
+                });
+
+                player.subscribe('error', 'thisPage1', function(eventName, payload){
+                    console.log("onCreate: RECEIVED ERROR EVENT: "+eventName+" payload: "+payload);
+                });
+                
+                //Metadata
+                player.subscribe('bitrateInfoAvailable', 'thisPage', function(eventName){
+
+                    window.metadataElement.innerHTML += "Title is: " + player.getTitle() + "<br/>";
+                    window.metadataElement.innerHTML += "Description is: " + player.getDescription() + "<br/>";
+                    window.metadataElement.innerHTML += "Duration is: " + player.getDuration() + "<br/>";
+                });                
+
+            }//onCreate ends here
+
+            window.bufferElement = getElement('buffer');
+            window.bitrateElement = getElement('bitrate');
+            window.metadataElement = getElement('metadata');
+
+            OO.ready(function() {
+                window.player = OO.Player.create('playerwrapper','FrbnBvbzqwLI3SYfe2gi5mOg1lQxjLxQ', {onCreate: window.onCreate, autoplay: true});    
+            });
+        </script>
 
 
-        
+
+          
+      </div>
+    </div> <!--jumbotron-->
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Video Details</h2>
+            <div id='metadata'>
+            
+            </div> 
+        </div>
+
+        <div class="col-md-6">
+          <h2>Update Video details</h2>
+            <div class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right" role="form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Update This video title" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Update Title</button>
+                </form>
+            </div><!--/.navbar-collapse -->
+       </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; Govi 2014</p>
+    </footer>
+
     </body>
 </html>
