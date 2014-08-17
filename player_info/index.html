@@ -60,7 +60,8 @@
                 });
 
                 //Metadata
-                player.subscribe('playbackReady', 'thisPage', function(eventName){
+                player.subscribe('bitrateInfoAvailable', 'thisPage', function(eventName){
+
                     window.metadataElement.innerHTML += "Title is: " + player.getTitle() + "<br/>";
                     window.metadataElement.innerHTML += "Description is: " + player.getDescription() + "<br/>";
                     window.metadataElement.innerHTML += "Duration is: " + player.getDuration() + "<br/>";
