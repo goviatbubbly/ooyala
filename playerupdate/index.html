@@ -40,7 +40,7 @@
 
         <script type=text/javascript>
             function getElement(id) {
-                return document.querySelector('div#'+id);
+                return document.querySelector('#'+id);
             }
 
             function onCreate(player){
@@ -68,6 +68,7 @@
             window.metadataElement = getElement('metadata');
 
             console.log(window.metadataElement);
+            console.log(document);
 
             OO.ready(function() {
                 window.player = OO.Player.create('playerwrapper','FrbnBvbzqwLI3SYfe2gi5mOg1lQxjLxQ', {onCreate: window.onCreate, autoplay: true});    
