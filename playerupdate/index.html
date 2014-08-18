@@ -65,6 +65,26 @@
     </footer>
 
     <script type=text/javascript>
+        scratchpad_req = function(url, method, body, api_key, secret) {
+            var account_type = "user";
+            return $.ajax({
+                url: "https://api.ooyala.com/docs/api_scratchpad/request",
+                type: "POST",
+                dataType: "json",
+                data: {
+                  url: url,
+                  method: method,
+                  body: body,
+                  api_key: api_key,
+                  secret: secret,
+                  account_type: account_type
+                },
+                success: function(response, textStatus, jqXhr) { console.log("Successfully Patched!"); },
+                error : function(jqXHR, textStatus, errorThrown) {console.log("The following error occured: " + textStatus, errorThrown); },
+                complete : function() { console.log("Patch Ran"); } 
+            });
+        };
+
             function getElement(id) {
                 return document.querySelector('#'+id);
             }
@@ -102,7 +122,10 @@
 
             $('#update_title_btn').on('click', function (e) {
                 var title = getElement('update_title_txt').value;
+                var title_param = '{"name": ' + title + '}';
                 if( title) {
+                    console.log("Updating video title to: "+title);
+                    scratchpad_req('https://api.ooyala.com/v2/assets/w3Y3ZvbzrCH6HKGwukyIwGzOvNSIanPG','PATCH',title_param, 'lueDYyOlaYtIydG6Fr_En9pHWL1p.Y-sBm', 'KXKXf5-EKmwg3gmuybr52fD8IRTJaXuGX0O5CrFm');
                     alert("Yes you done: " + title);
                 } else {
                     alert("Sorry you have to fill title" + title);    
