@@ -67,6 +67,8 @@
             window.bitrateElement = getElement('bitrate');
             window.metadataElement = getElement('metadata');
 
+            console.log(window.metadataElement);
+
             OO.ready(function() {
                 window.player = OO.Player.create('playerwrapper','FrbnBvbzqwLI3SYfe2gi5mOg1lQxjLxQ', {onCreate: window.onCreate, autoplay: true});    
             });
