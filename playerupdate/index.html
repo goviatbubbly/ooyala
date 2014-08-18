@@ -101,8 +101,13 @@
             });
 
             $('#update_title_btn').on('click', function (e) {
-                var title = getElement('update_title_txt');
-                alert("Yes you done: " + title);
+                var title = getElement('update_title_txt').value;
+                if( title) {
+                    alert("Yes you done: " + title);
+                } else {
+                    alert("Sorry you have to fill title" + title);    
+                }
+                
                 //your awesome code here
 
             });
