@@ -53,12 +53,8 @@
         <div class="col-md-6">
           <h2>Update Video details</h2>
             <div class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right" role="form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Update This video title" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Update Title</button>
-                </form>
+                <input type="text" id="update_title_txt" placeholder="Update This video title" class="form-control"> 
+                <button type="submit" id="update_title_btn" class="btn btn-success">Update Title</button>
             </div><!--/.navbar-collapse -->
        </div>
     </div>
@@ -102,6 +98,13 @@
 
             OO.ready(function() {
                 window.player = OO.Player.create('playerwrapper','FrbnBvbzqwLI3SYfe2gi5mOg1lQxjLxQ', {onCreate: window.onCreate, autoplay: true});    
+            });
+
+            $('#update_title_btn').on('click', function (e) {
+                var title = getElement('update_title_txt');
+                alert("Yes you done: " + title);
+                //your awesome code here
+
             });
     </script>
 
