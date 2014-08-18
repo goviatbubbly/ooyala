@@ -83,8 +83,8 @@
                     console.log("onCreate: RECEIVED ERROR EVENT: "+eventName+" payload: "+payload);
                 });
                 
-                //Metadata
-                player.subscribe('bitrateInfoAvailable', 'thisPage', function(eventName){
+                // bitrateInfoAvailable
+                player.subscribe('metadataFetched', 'thisPage', function(eventName){
 
                     window.metadataElement.innerHTML = "Title is: " + player.getTitle() + "<br/>";
                     window.metadataElement.innerHTML += "Description is: " + player.getDescription() + "<br/>";
@@ -103,7 +103,7 @@
             OO.ready(function() {
                 window.player = OO.Player.create('playerwrapper','FrbnBvbzqwLI3SYfe2gi5mOg1lQxjLxQ', {onCreate: window.onCreate, autoplay: true});    
             });
-        </script>
+    </script>
 
 
     </body>
