@@ -84,7 +84,7 @@
                 });
                 
                 // bitrateInfoAvailable
-                player.subscribe('metadataFetched', 'thisPage', function(eventName){
+                player.subscribe('contentTreeFetched', 'thisPage', function(eventName){
 
                     window.metadataElement.innerHTML = "Title is: " + player.getTitle() + "<br/>";
                     window.metadataElement.innerHTML += "Description is: " + player.getDescription() + "<br/>";
