@@ -104,8 +104,9 @@
 
                     window.metadataElement.innerHTML = "Title is: " + player.getTitle() + "<br/>";
                     window.metadataElement.innerHTML += "Description is: " + player.getDescription() + "<br/>";
-                    window.metadataElement.innerHTML += "Duration is: " + player.getDuration() + "<br/>";
+                    window.metadataElement.innerHTML += "Duration is: " + player.getDuration() + "<br/>";                    
                 });                
+
 
             }//onCreate ends here
 
@@ -125,7 +126,7 @@
                 var title_param = '{"name": ' + title + '}';
                 if( title) {
                     console.log("Updating video title to: "+title);
-                    scratchpad_req('https://api.ooyala.com/v2/assets/w3Y3ZvbzrCH6HKGwukyIwGzOvNSIanPG','PATCH',title_param, 'lueDYyOlaYtIydG6Fr_En9pHWL1p.Y-sBm', 'KXKXf5-EKmwg3gmuybr52fD8IRTJaXuGX0O5CrFm');
+                    scratchpad_req('https://api.ooyala.com/v2/assets/'+player.embedCode,'PATCH',title_param, 'lueDYyOlaYtIydG6Fr_En9pHWL1p.Y-sBm', 'KXKXf5-EKmwg3gmuybr52fD8IRTJaXuGX0O5CrFm');
                     alert("Yes you done: " + title);
                 } else {
                     alert("Sorry you have to fill title" + title);    
