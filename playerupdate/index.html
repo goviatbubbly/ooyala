@@ -37,8 +37,38 @@
       <div class="container">
         
         <div id='playerwrapper' style='margin-top: 40px;width: 100%;height: 360px;'> </div>
+          
+      </div>
+    </div> <!--jumbotron-->
 
-        <script type=text/javascript>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Video Details</h2>
+            <div id='metadata'>
+                -- Metadata -- <br/>
+            </div> 
+        </div>
+
+        <div class="col-md-6">
+          <h2>Update Video details</h2>
+            <div class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right" role="form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Update This video title" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Update Title</button>
+                </form>
+            </div><!--/.navbar-collapse -->
+       </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; Govi 2014</p>
+    </footer>
+
+    <script type=text/javascript>
             function getElement(id) {
                 return document.querySelector('#'+id);
             }
@@ -75,38 +105,6 @@
             });
         </script>
 
-
-
-          
-      </div>
-    </div> <!--jumbotron-->
-
-
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Video Details</h2>
-            <div id='metadata'>
-                -- Metadata -- <br/>
-            </div> 
-        </div>
-
-        <div class="col-md-6">
-          <h2>Update Video details</h2>
-            <div class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right" role="form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Update This video title" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Update Title</button>
-                </form>
-            </div><!--/.navbar-collapse -->
-       </div>
-    </div>
-
-
-    <footer>
-        <p>&copy; Govi 2014</p>
-    </footer>
 
     </body>
 </html>
