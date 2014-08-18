@@ -80,7 +80,7 @@
                   account_type: account_type
                 },
                 success: function(response, textStatus, jqXhr) { console.log("Successfully Patched!"); },
-                error : function(jqXHR, textStatus, errorThrown) {console.log("The following error occured: " + textStatus, errorThrown); },
+                error : function(jqXHR, textStatus, errorThrown) {console.log("The following error occured: " + textStatus, errorThrown); console.log(textStatus);console.log(errorThrown);},
                 complete : function() { console.log("Patch Ran"); } 
             });
         };
