@@ -126,8 +126,10 @@
                 var title_param = '{"name": ' + title + '}';
                 if( title) {
                     console.log("Updating video title to: "+title);
-                    scratchpad_req('https://api.ooyala.com/v2/assets/'+player.embedCode,'PATCH',title_param, 'lueDYyOlaYtIydG6Fr_En9pHWL1p.Y-sBm', 'KXKXf5-EKmwg3gmuybr52fD8IRTJaXuGX0O5CrFm');
-                    alert("Yes you done: " + title);
+                    var update_url = "http://78.93.71.147:3337/ooyala/update_title?asset_id="+player.embedCode+"&asset_key=name&asset_val="+title;
+
+                    $.get(update_url, function(data,status){ console.log(data); console.log(status); });
+                     console.log("Yes you done: " + title);
                 } else {
                     alert("Sorry you have to fill title" + title);    
                 }
