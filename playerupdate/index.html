@@ -106,7 +106,22 @@
                     window.metadataElement.innerHTML += "Description is: " + player.getDescription() + "<br/>";
                     window.metadataElement.innerHTML += "Duration is: " + player.getDuration() + "<br/>";   
                     console.log('Title '+player.getTitle()+' Desc: '+player.getDescription()+' Duration: '+ player.getDuration());
-                });                
+                });
+
+                player.subscribe('played', 'thisPage', function(eventName){
+                    <div class="alert alert-info">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Note!</strong> Video paused.
+                    </div>             
+                }
+
+                player.subscribe('paused', 'thisPage', function(eventName){
+                    <div class="alert alert-success">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>Success!</strong> Video paused.
+                    </div>             
+                }
+
 
 
             }//onCreate ends here
