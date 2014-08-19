@@ -99,8 +99,8 @@
                     console.log("onCreate: RECEIVED ERROR EVENT: "+eventName+" payload: "+payload);
                 });
                 
-                // bitrateInfoAvailable
-                player.subscribe('contentTreeFetched', 'thisPage', function(eventName){
+                // bitrateInfoAvailable    contentTreeFetched
+                player.subscribe('bitrateInfoAvailable', 'thisPage', function(eventName){
 
                     window.metadataElement.innerHTML = "Title is: " + player.getTitle() + "<br/>";
                     window.metadataElement.innerHTML += "Description is: " + player.getDescription() + "<br/>";
