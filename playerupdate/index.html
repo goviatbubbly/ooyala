@@ -108,7 +108,7 @@
                     console.log('Title '+player.getTitle()+' Desc: '+player.getDescription()+' Duration: '+ player.getDuration());
                 });
 
-                player.subscribe('played', 'thisPage', function(eventName){
+                player.subscribe('playing', 'thisPage', function(eventName){
                     console.log("video play started");            
                 });
 
