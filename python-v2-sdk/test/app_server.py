@@ -3,8 +3,10 @@ import json
 import sys
 sys.path.append("..")
 from api import OoyalaAPI
-from flask import Flask
+from flask import Flask,make_response
 from flask import request
+from functools import wraps
+
 app = Flask(__name__)
 
 class TestOoyalaAPI(object):
@@ -51,8 +53,30 @@ if __name__ == "__main__ test":
 	app.update_asset('FrbnBvbzqwLI3SYfe2gi5mOg1lQxjLxQ', 'name', 'govi Miramax Partners with Ooyala and Facebook')
 """
 
+def add_response_headers(headers={}):
+    """This decorator adds the headers passed in to the response"""
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            resp = make_response(f(*args, **kwargs))
+            h = resp.headers
+            for header, value in headers.items():
+                h[header] = value
+            return resp
+        return decorated_function
+    return decorator
+
+def access_ctrl(f):
+    @wraps(f)
+    @add_response_headers({'Access-Control-Allow-Origin': '*'})
+    def decorated_function(*args, **kwargs):
+        return f(*args, **kwargs)
+    return decorated_function
+
+
 
 @app.route("/ooyala/update_title")
+@access_ctrl
 def update_title():
     try:
       asset_id = request.args.get('asset_id')
